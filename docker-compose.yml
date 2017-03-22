@@ -14,10 +14,10 @@ services:
       - ./mysql:/var/lib/mysql
   web:
     build: .
-    command: bash -c "cp xvolutions/config/parameters.yml.dist xvolutions/config/parameters.yml && composer update && php xvolutions/console doctrine:schema:create && php xvolutions/console xvolutions:admin:initiate admin Administrator oko admin && php xvolutionscms/console server:run 0.0.0.0:8000 --docroot=public_html"
+    command: bash -c "cp xvolutionscms/config/parameters.yml.dist xvolutionscms/config/parameters.yml && composer update && php xvolutionscms/console doctrine:schema:create && php xvolutionscms/console xvolutions:admin:initiate admin Administrator oko admin && php xvolutionscms/console server:run 0.0.0.0:8000 --docroot=public_html"
     ports:
       - "${WEB_PORT}:8000"
     links:
       - db
     volumes:
-      - .:/host
+      - .:/project

@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -my \
   php-xdebug \
   php-cli \
   php-intl \
+  zip \
   mysql-client
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -21,6 +22,6 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
-ADD . /host
+ADD . /project
 
-WORKDIR /host
+WORKDIR /project

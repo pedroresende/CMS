@@ -1,0 +1,7 @@
+before_script:
+    - docker-compose build
+    - docker-compose start
+
+after_script:
+    - docker-compose down
+

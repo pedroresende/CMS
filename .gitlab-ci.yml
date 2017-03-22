@@ -5,3 +5,10 @@ before_script:
 after_script:
     - docker-compose down
 
+stages:
+    - quality
+
+quality:
+    stage: quality
+    script:
+        - php bin/phpunit -c xvolutionscms/

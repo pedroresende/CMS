@@ -6,7 +6,7 @@ sed -i 's/database_user:     root/database_user:     symfony/g' xvolutionscms/co
 sed -i 's/database_password: ~/database_password: symfony/g' xvolutionscms/config/parameters.yml
 
 echo "Install dependencies through composer"
-composer install
+composer update
 
 echo 'Droping the database'
 php xvolutionscms/console doctrine:database:drop --force
